@@ -53,8 +53,8 @@ func (h *Handler) Enabled(ctx context.Context, level slog.Level) bool {
 }
 
 // Handle is a simple wrapper method around h.handler.Handle.
-func (h *Handler) Handle(r slog.Record) error {
-	if span := trace.SpanFromContext(r.Context); span.IsRecording() {
+func (h *Handler) Handle(ctx context.Context, r slog.Record) error {
+	if span := trace.SpanFromContext(ctx); span.IsRecording() {
 		attrs := make([]attribute.KeyValue, 0, r.NumAttrs()+6)
 		r.Attrs(func(a slog.Attr) {
 			attrs = appendAttr(a, attrs, "")
@@ -93,7 +93,7 @@ func (h *Handler) Handle(r slog.Record) error {
 		}
 	}
 
-	return h.handler.Handle(r)
+	return h.handler.Handle(ctx, r)
 }
 
 // WithAttrs is a simple wrapper method around h.handler.WithAttrs.
