@@ -5,7 +5,7 @@
 
 Logem, short for "Let's Log em!", is an opinionated handler wrapper for [slog](https://pkg.go.dev/golang.org/x/exp/slog).
 
-It combines a LevelHandler and an TraceHandler in a single, simple to use handler.
+It combines a LevelHandler and a TraceHandler in a single, simple to use handler.
 
 ## Disclaimer
 
