@@ -16,7 +16,7 @@ However feel free to inspire yourself from it or fork it.
 ## Installation
 
 ```shell
-go install github.com/mgjules/logem@v0.0.1
+go get -u github.com/mgjules/logem
 ```
 
 ## Usage
