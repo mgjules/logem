@@ -124,12 +124,7 @@ func appendAttr(a slog.Attr, attrs []attribute.KeyValue, prefix string) []attrib
 	value := a.Value.Resolve()
 
 	if value.Kind() == slog.KindGroup {
-		groupAttrs := value.Group()
-		if len(attrs) == 0 {
-			return attrs
-		}
-
-		for _, ga := range groupAttrs {
+		for _, ga := range value.Group() {
 			attrs = appendAttr(ga, attrs, key)
 		}
 
